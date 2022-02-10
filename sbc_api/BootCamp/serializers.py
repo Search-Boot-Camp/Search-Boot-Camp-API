@@ -5,3 +5,5 @@ class BootCampSerializer(serializers.ModelSerializer):
     class Meta:
         model = BootCamp
         fields = '__all__'
+
+

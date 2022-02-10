@@ -16,9 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from BootCamp.views import BootCampListAPI
+from BootCamp.views import BootCampListAPI, SearchBootCampAPI, BootCampDetailAPI, OptionBootCampAPI, BootCampUpdate
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/bootcamp/', BootCampListAPI.as_view())
+    path('api/bootcamp/', BootCampListAPI.as_view()),
+    path('api/bootcamp/<int:pk>/', BootCampDetailAPI.as_view()),
+    path('api/bootcamp/search/', SearchBootCampAPI.as_view()),
+    path('api/bootcamp/option/', OptionBootCampAPI.as_view()),
+    path('api/bootcamp/update/', BootCampUpdate)
 ]
