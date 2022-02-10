@@ -92,5 +92,3 @@ curs = conn.cursor(pymysql.cursors.DictCursor)
 1) requirement.txt 파일이 계속 에러가 나면 이 파일로 수정해서 install 해주세요!
 
 [requirements.txt](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8302aa1f-f046-4fc9-bd15-52dbf3347140/requirements.txt)
-
-                                                                            🔽
