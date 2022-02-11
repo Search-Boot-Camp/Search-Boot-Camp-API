@@ -59,6 +59,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_filters',
+    'rest_framework_swagger',
+    'drf_yasg',
     'rest_framework',
     'BootCamp',
 ]
@@ -102,7 +104,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sbc',
         'USER': 'root',
-        'PASSWORD': 'qwer1234',
+        'PASSWORD': 'kathyleesh0831',
         'HOST': '127.0.0.1',
         'PORT': '3306'
     }
