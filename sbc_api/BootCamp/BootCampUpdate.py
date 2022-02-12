@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-
+
 import pandas as pd
 import pymysql
 import xlrd
@@ -40,10 +42,10 @@ APPLYCONDITION = (
     ('6', '졸업자'),
 )
 
-conn = pymysql.connect(host='127.0.0.1', user='root', password='qwer1234', db='sbc')
+conn = pymysql.connect(host='127.0.0.1', user='root', password='kathyleesh0831', db='sbc')
 curs = conn.cursor(pymysql.cursors.DictCursor)
 
-bootcamp_book = xlrd.open_workbook('BootCamp/Search Boot Camp.xls')
+bootcamp_book = xlrd.open_workbook('Search Boot Camp.xls')
 bootcamp_sheet = bootcamp_book.sheet_by_name('취합본')
 
 bootcamp_truncate = 'truncate table BootCamp_bootcamp'

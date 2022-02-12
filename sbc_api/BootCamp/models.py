@@ -1,3 +1,4 @@
+from re import search
 from django.db import models
 
 TRAININGPERIOD = (
@@ -86,3 +87,10 @@ class BootCamp(models.Model):
 
     def __str__(self):
         return self.bootcamp_name
+
+class SearchBootCampDTO(models.Model):
+    search = models.CharField(max_length=100, null=True, blank=True) # search
+
+
+    def __str__(self):
+        return self.search
