@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from drf_yasg.utils import swagger_auto_schema
 from .models import BootCamp
 from .pagination import BootCampPagination
-from .serializers import BootCampSerializer
+from .serializers import BootCampSerializer, OptionSerializer, SearchSerializer
 from django.db.models import Q
 
 
@@ -29,11 +29,10 @@ class BootCampDetailAPI(APIView):
         return Response(serializer.data)
 
 class SearchBootCampAPI(APIView):
-    @swagger_auto_schema(tags=["Search"],query_serializer=BootCampSerializer,responses= {200 : '성공', 404 : '찾을 수 없음', 400 : '인풋값 에러', 500 : '서버 에러'} )
+    @swagger_auto_schema(tags=["Search"],query_serializer=SearchSerializer,responses= {200 : '성공', 404 : '찾을 수 없음', 400 : '인풋값 에러', 500 : '서버 에러'} )
     def get(self, request):
         bootcamps = BootCamp.objects.all()
         search = request.GET.get('search')
-        queryset = BootCamp.objects.all()
         if search:
             queryset = bootcamps.filter(
                 Q(brand_name__icontains=search) |
@@ -47,7 +46,7 @@ class SearchBootCampAPI(APIView):
 
 
 class OptionBootCampAPI(APIView):
-    @swagger_auto_schema(tags=["Option"],responses= {200 : '성공', 404 : '찾을 수 없음', 400 : '인풋값 에러', 500 : '서버 에러'})
+    @swagger_auto_schema(tags=["Option"],query_serializer=OptionSerializer,responses= {200 : '성공', 404 : '찾을 수 없음', 400 : '인풋값 에러', 500 : '서버 에러'})
     def get(self, request):
         bootcamps = BootCamp.objects.all()
         program = request.GET.get('program')
