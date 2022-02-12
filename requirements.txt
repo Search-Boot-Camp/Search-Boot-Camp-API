@@ -6,7 +6,7 @@ chardet==4.0.0
 cryptography==36.0.1
 defusedxml==0.7.1
 diff-match-patch==20200713
-Django==4.0.2
+Django==3.2.12
 django-import-export==2.7.1
 djangorestframework==3.13.1
 et-xmlfile==1.1.0
@@ -14,11 +14,9 @@ lml==0.1.0
 macholib==1.15.2
 MarkupPy==1.14
 numexpr==2.8.1
-numpy==1.22.2
 odfpy==1.4.1
 openpyxl==3.0.9
 packaging==21.3
-pandas==1.4.0
 pycparser==2.21
 pyexcel==0.6.7
 pyexcel-io==0.6.6
