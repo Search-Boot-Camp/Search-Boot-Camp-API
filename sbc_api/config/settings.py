@@ -38,6 +38,8 @@ def get_secret(setting, secrets=secrets):
 
 SECRET_KEY = get_secret("SECRET_KEY")
 
+DB_PASSWORD = get_secret("DB_PASSWORD")
+
 pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -104,7 +106,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sbc',
         'USER': 'root',
-        'PASSWORD': 'kathyleesh0831',
         'HOST': '127.0.0.1',
         'PORT': '3306'
     }

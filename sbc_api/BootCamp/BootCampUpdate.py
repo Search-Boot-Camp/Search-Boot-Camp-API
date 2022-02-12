@@ -42,7 +42,7 @@ APPLYCONDITION = (
     ('6', '졸업자'),
 )
 
-conn = pymysql.connect(host='127.0.0.1', user='root', password='kathyleesh0831', db='sbc')
+conn = pymysql.connect(host='127.0.0.1', user='root', db='sbc')
 curs = conn.cursor(pymysql.cursors.DictCursor)
 
 bootcamp_book = xlrd.open_workbook('Search Boot Camp.xls')
