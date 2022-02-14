@@ -2,6 +2,14 @@
 
 ![img.png](img.png)
 
+
+# <img src="https://user-images.githubusercontent.com/90851865/153856993-7e04e799-ece4-4758-9b81-18df8065ba6b.png" width="30" height="30"> [Swagger API 문서](http://ec2-13-209-65-110.ap-northeast-2.compute.amazonaws.com:8000/swagger/)
+
+## 📄 [swagger 사용법](https://wonderful-loan-f23.notion.site/SWAGGER-82505cf6c13845368f557932dc523d12)
+
+<img width="600" alt="swaggerscreen" src="https://user-images.githubusercontent.com/90851865/153856335-8c1f13ec-70e2-41c0-b7b3-8807df41c3b9.png">
+
+
 ---
 # 1. 가상환경 설정
 
