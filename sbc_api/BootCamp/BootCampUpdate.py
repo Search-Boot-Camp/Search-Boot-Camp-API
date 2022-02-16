@@ -42,7 +42,7 @@ APPLYCONDITION = (
     ('6', '졸업자'),
 )
 
-conn = pymysql.connect(host='ec2-13-209-65-110.ap-northeast-2.compute.amazonaws.com', user='root', db='sbc')
+conn = pymysql.connect(host='127.0.0.1', user='root', db='sbc')
 curs = conn.cursor(pymysql.cursors.DictCursor)
 
 bootcamp_book = xlrd.open_workbook('Search Boot Camp.xls')
@@ -53,7 +53,7 @@ bootcamp_truncate = 'truncate table BootCamp_bootcamp'
 curs.execute(bootcamp_truncate)
 conn.commit()
 
-bootcamp_insert = 'insert into BootCamp_bootcamp values(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+bootcamp_insert = 'insert into BootCamp_bootcamp values(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
 
 for idx in range(1, bootcamp_sheet.nrows):
     id = idx;
@@ -91,9 +91,8 @@ for idx in range(1, bootcamp_sheet.nrows):
     link = bootcamp_sheet.cell(idx, 15).value if bootcamp_sheet.cell(idx, 15).value else None
     note = bootcamp_sheet.cell(idx, 16).value if bootcamp_sheet.cell(idx, 16).value else None
     image_id = bootcamp_sheet.cell(idx, 17).value if bootcamp_sheet.cell(idx, 17).value else None
-    count = 0
     values = (id, company_id, brand_name, program, bootcamp_name, tech_stack, price, training_period, accept,
-              apply_start, apply_end, on_offline, place, apply_condition, apply_course, k_digital, link, note, image_id, count)
+              apply_start, apply_end, on_offline, place, apply_condition, apply_course, k_digital, link, note, image_id)
     curs.execute(bootcamp_insert, values)
 conn.commit()
 print("BootCamp 정보가 DB에 등록되었습니다!")

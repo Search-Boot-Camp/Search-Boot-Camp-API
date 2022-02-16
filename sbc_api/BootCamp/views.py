@@ -93,5 +93,6 @@ class ImageBootCampAPI(APIView):
 def BootCampUpdate(request):
     exec(open('BootCamp/BootCampUpdate.py').read())
     data = {'result': "DB update success"}
+    
     return JsonResponse(data, status=status.HTTP_200_OK)
 

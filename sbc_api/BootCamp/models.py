@@ -84,7 +84,6 @@ class BootCamp(models.Model):
     link = models.CharField(max_length=1000, null=True, blank=True) # 링크
     note = models.CharField(max_length=1000, null=True, blank=True) # 비고
     image_id = models.CharField(max_length=15, null=True, blank=True) # 이미지 번호
-    count = models.IntegerField(default=0) # 조회수
 
     def __str__(self):
         return self.bootcamp_name
