@@ -15,3 +15,8 @@ class OptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = BootCamp
         fields = 'program', 'tech_stack', 'accept', 'on_offline', 'k_digital'
+
+class ImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BootCamp
+        fields = 'image_id',

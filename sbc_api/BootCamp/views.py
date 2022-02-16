@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from drf_yasg.utils import swagger_auto_schema
 from .models import BootCamp
 from .pagination import BootCampPagination
-from .serializers import BootCampSerializer, OptionSerializer, SearchSerializer
+from .serializers import BootCampSerializer, OptionSerializer, SearchSerializer, ImageSerializer
 from django.db.models import Q
 
 
@@ -19,6 +19,7 @@ class BootCampListAPI(ListAPIView):
 class BootCampDetailAPI(APIView):
     def get_object(self, pk):
         return get_object_or_404(BootCamp, pk=pk)
+
     @swagger_auto_schema(tags=["ID"], responses= {200 : '성공', 404 : '찾을 수 없음', 400 : '인풋값 에러', 500 : '서버 에러'})
     def get(self, request, pk):
         bootcamp = self.get_object(pk)
@@ -76,8 +77,22 @@ class OptionBootCampAPI(APIView):
         serializer = BootCampSerializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+class ImageBootCampAPI(APIView):
+    @swagger_auto_schema(tags=["Image"],query_serializer=ImageSerializer,responses= {200 : '성공', 404 : '찾을 수 없음', 400 : '인풋값 에러', 500 : '서버 에러'})
+    def get(self, request):
+        bootcamps = BootCamp.objects.all()
+        image_id = request.GET.get('image_id')
+        if image_id:
+            queryset = bootcamps.filter(
+                Q(image_id__icontains=image_id) 
+            )
+        serializer = BootCampSerializer(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
 def BootCampUpdate(request):
     exec(open('BootCamp/BootCampUpdate.py').read())
     data = {'result': "DB update success"}
+
     return JsonResponse(data, status=status.HTTP_200_OK)
 
