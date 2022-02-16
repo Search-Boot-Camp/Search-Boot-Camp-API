@@ -81,10 +81,10 @@ class ImageBootCampAPI(APIView):
     @swagger_auto_schema(tags=["Image"],query_serializer=ImageSerializer,responses= {200 : '성공', 404 : '찾을 수 없음', 400 : '인풋값 에러', 500 : '서버 에러'})
     def get(self, request):
         bootcamps = BootCamp.objects.all()
-        image_name = request.GET.get('image_name')
-        if image_name:
+        image_id = request.GET.get('image_id')
+        if image_id:
             queryset = bootcamps.filter(
-                Q(image_name__icontains=image_name) 
+                Q(image_id__icontains=image_id) 
             )
         serializer = BootCampSerializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
