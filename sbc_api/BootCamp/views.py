@@ -56,10 +56,11 @@ class OptionBootCampAPI(APIView):
         k_digital = request.GET.get('k_digital')
 
         search_list = {"program":program, "tech_stack":tech_stack, "accept":accept, "on_offline":on_offline, "k_digital":k_digital}
-
+        print(search_list)
         q = Q()
 
         for key in search_list:
+            print(key)
             if search_list[key]:
                 if key == "program":
                     q.add(Q(program__icontains=program), q.AND)
