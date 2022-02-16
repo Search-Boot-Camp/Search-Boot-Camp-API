@@ -99,11 +99,11 @@ for idx in range(1, bootcamp_sheet.nrows):
         "%x") if bootcamp_sheet.cell(idx, 9).value else None
     temp = bootcamp_sheet.cell(idx, 10).value
     if temp == 1:
-        on_offline = 'Online'
+        on_offline = '온라인'
     elif temp == 2:
-        on_offline = 'Offline'
+        on_offline = '오프라인'
     elif temp == 3:
-        on_offline = 'Both'
+        on_offline = '온/오프라인 병행'
     else:
         on_offline = None
 
