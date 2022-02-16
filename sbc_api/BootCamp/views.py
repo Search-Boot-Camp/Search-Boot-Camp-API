@@ -24,7 +24,6 @@ class BootCampDetailAPI(APIView):
     def get(self, request, pk):
         bootcamp = self.get_object(pk)
         serializer = BootCampSerializer(bootcamp)
-        bootcamp.count += 1
         bootcamp.save()
 
         return Response(serializer.data)
