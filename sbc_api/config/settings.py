@@ -17,6 +17,7 @@ from django.core.exceptions import ImproperlyConfigured
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -68,9 +69,12 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework',
     'BootCamp',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', # <- 가능한 높게 위치시켜야 한다.
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -79,6 +83,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True # <- 모든 호스트 허용
 
 ROOT_URLCONF = 'config.urls'
 
