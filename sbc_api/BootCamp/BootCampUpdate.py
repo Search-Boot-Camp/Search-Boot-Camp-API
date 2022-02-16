@@ -176,13 +176,13 @@ for idx in range(1, bootcamp_sheet.nrows):
         k_digital = '국민내일배움카드 선택사항'
     else:
         apply_course = None
-        
+
     link = bootcamp_sheet.cell(idx, 15).value if bootcamp_sheet.cell(idx, 15).value else None
     note = bootcamp_sheet.cell(idx, 16).value if bootcamp_sheet.cell(idx, 16).value else None
     image_id = bootcamp_sheet.cell(idx, 17).value if bootcamp_sheet.cell(idx, 17).value else None
     count = 0
     values = (id, company_id, brand_name, program, bootcamp_name, tech_stack, price, training_period, accept,
-              apply_start, apply_end, on_offline, place, apply_condition, apply_course, k_digital, link, note, count)
+              apply_start, apply_end, on_offline, place, apply_condition, apply_course, k_digital, link, note, image_id, count)
     curs.execute(bootcamp_insert, values)
 conn.commit()
 print("BootCamp 정보가 DB에 등록되었습니다!")
