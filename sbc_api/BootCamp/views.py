@@ -24,7 +24,6 @@ class BootCampDetailAPI(APIView):
     def get(self, request, pk):
         bootcamp = self.get_object(pk)
         serializer = BootCampSerializer(bootcamp)
-        bootcamp.count += 1
         bootcamp.save()
 
         return Response(serializer.data)
@@ -57,7 +56,6 @@ class OptionBootCampAPI(APIView):
         k_digital = request.GET.get('k_digital')
 
         search_list = {"program":program, "tech_stack":tech_stack, "accept":accept, "on_offline":on_offline, "k_digital":k_digital}
-
         q = Q()
 
         for key in search_list:
