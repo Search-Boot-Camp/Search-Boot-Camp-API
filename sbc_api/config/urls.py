@@ -41,7 +41,7 @@ urlpatterns = [
     path('api/bootcamp/<int:pk>/', BootCampDetailAPI.as_view()),
     path('api/bootcamp/search', SearchBootCampAPI.as_view()),
     path('api/bootcamp/option/', OptionBootCampAPI.as_view()),
-    path('api/bootcamp/image_id/', ImageBootCampAPI.as_view()),
+    path('api/bootcamp/image/', ImageBootCampAPI.as_view()),
     path('api/bootcamp/update/', BootCampUpdate),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
