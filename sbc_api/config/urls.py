@@ -21,7 +21,11 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from BootCamp import views
 from BootCamp.views import BootCampListAPI, SearchBootCampAPI, BootCampDetailAPI, OptionBootCampAPI, ImageBootCampAPI ,BootCampUpdate
+from django.urls import path
 
+def trigger_error(request):
+    division_by_zero = 1 / 0
+    
 schema_view = get_schema_view(
    openapi.Info(
       title="Snippets API",
@@ -43,6 +47,7 @@ urlpatterns = [
     path('api/bootcamp/option/', OptionBootCampAPI.as_view()),
     path('api/bootcamp/image/', ImageBootCampAPI.as_view()),
     path('api/bootcamp/update/', BootCampUpdate),
+    path('sentry-debug/', trigger_error),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
