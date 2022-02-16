@@ -90,9 +90,9 @@ for idx in range(1, bootcamp_sheet.nrows):
     k_digital = bootcamp_sheet.cell(idx, 14).value
     link = bootcamp_sheet.cell(idx, 15).value if bootcamp_sheet.cell(idx, 15).value else None
     note = bootcamp_sheet.cell(idx, 16).value if bootcamp_sheet.cell(idx, 16).value else None
-    image_id = bootcamp_sheet.cell(idx, 17).value if bootcamp_sheet.cell(idx, 17).value else None
+    image_name = bootcamp_sheet.cell(idx, 17).value if bootcamp_sheet.cell(idx, 17).value else None
     values = (id, company_id, brand_name, program, bootcamp_name, tech_stack, price, training_period, accept,
-              apply_start, apply_end, on_offline, place, apply_condition, apply_course, k_digital, link, note, image_id)
+              apply_start, apply_end, on_offline, place, apply_condition, apply_course, k_digital, link, note, image_name)
     curs.execute(bootcamp_insert, values)
 conn.commit()
 print("BootCamp 정보가 DB에 등록되었습니다!")
