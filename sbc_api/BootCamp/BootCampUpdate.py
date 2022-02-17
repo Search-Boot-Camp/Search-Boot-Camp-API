@@ -91,12 +91,9 @@ for idx in range(1, bootcamp_sheet.nrows):
     else:
         accept = None
 
-    apply_start = datetime.datetime(
-        *xlrd.xldate_as_tuple(bootcamp_sheet.cell(idx, 9).value, bootcamp_book.datemode)).strftime(
-        "%x") if bootcamp_sheet.cell(idx, 8).value else None
-    apply_end = datetime.datetime(
-        *xlrd.xldate_as_tuple(bootcamp_sheet.cell(idx, 9).value, bootcamp_book.datemode)).strftime(
-        "%x") if bootcamp_sheet.cell(idx, 9).value else None
+    apply_start = bootcamp_sheet.cell(idx, 8).value if bootcamp_sheet.cell(idx, 8).value else None
+    apply_end = bootcamp_sheet.cell(idx, 8).value if bootcamp_sheet.cell(idx, 8).value else None
+
     temp = bootcamp_sheet.cell(idx, 10).value
     if temp == 1:
         on_offline = '온라인'
